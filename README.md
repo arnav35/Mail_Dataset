@@ -10,8 +10,8 @@ Libraries used: BeautifulSoup, NLTK
 4) Download the zip file and upload it to website ,
 https://www.coolutils.com/online/MBOX-to-TXT
 5) unzip the output file and paste txttocsv.py into it
-6) Change encoding for file as per your need given in line no. 21 in the code
-7) Change the format for the csv files, add columns as per your requirement in line no. 82
+6) Change encoding for file as per your need given in line no. 24 in the code
+7) Change the format for the csv files, add columns as per your requirement in line no. 91
 8) Run the python code to get csv file of emails in file newdataset.csv
 
 Use shuffle.py to shuffle the csv file
