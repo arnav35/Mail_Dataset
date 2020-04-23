@@ -8,16 +8,19 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 import nltk
-#nltk.download('punkt')
+#Run this command in python shell - nltk.download('punkt')
+
 
 punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 
+#read all txt files in the folder
 path = '*.txt'
 files = glob.glob(path)
 
 for name in files:
 	print(name)
 	try:
+		#Change encoding of file here
 		with open(name, "r", encoding="cp1252") as file:
 			str = file.read()
 			
@@ -38,8 +41,11 @@ for name in files:
 			# drop blank lines
 			text = '\n'.join(chunk for chunk in chunks if chunk)
 
+			#optional to remove all puntuations
 			text = re.sub(r'[^\w]', ' ', text)
+			#to remove https links
 			text = re.sub(r'^https?:\/\/.*[\r\n]*', '', text, flags=re.MULTILINE)
+			#to remove digits
 			text = re.sub(r'[0-9]+', '', text)
 
 			tokens = word_tokenize(text)
@@ -48,6 +54,7 @@ for name in files:
 				if len(i) > 20:
 					tokens.remove(i)
 
+			#to remove random meaningless long sequences of characters
 			text =""
 			for i in tokens:
 				if len(i) < 20:
